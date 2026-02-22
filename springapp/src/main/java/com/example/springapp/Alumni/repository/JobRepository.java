@@ -7,6 +7,8 @@ import com.example.springapp.Alumni.model.Job;
 
 public interface JobRepository extends JpaRepository<Job, Long> {
 
+ Page<Job> findByTitleContainingIgnoreCase(
+            String keyword, Pageable pageable);
     Page<Job> findByStatus(String status, Pageable pageable);
 
     Page<Job> findByCompanyContainingIgnoreCase(String company, Pageable pageable);
